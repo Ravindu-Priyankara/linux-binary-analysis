@@ -43,3 +43,9 @@ CC if return value >= 0, skip unregister @ 0x08000402
 CC runtime value(relocs 0xb7) @ 0x08000404
 CC rtnl_link_unregister @ 0x0800040b 
 CC return 0 or a negative value. (depend on runtime) @ 0x08000410
+
+# exit module (cleanup_module)
+
+CC runtime(reloc 0x14) @ 0x08000339
+CC call rtnl_link_unregister @ 0x08000343
+
