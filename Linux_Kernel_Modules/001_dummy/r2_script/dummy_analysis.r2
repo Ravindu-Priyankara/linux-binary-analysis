@@ -39,7 +39,7 @@ CC rtnl_unlock  @ 0x080003fb
 CC clear return value of register_netdevice @ 0x080003ef
 CC increment the loop counter @ 0x080003f6
 CC set flags from return value @ 0x08000400
-CC if return value >= 0, skip unregister @ 0x08000402
+CC "if return value >= 0, skip unregister" @ 0x08000402
 CC runtime value(relocs 0xb7) @ 0x08000404
 CC rtnl_link_unregister @ 0x0800040b 
 CC return 0 or a negative value. (depend on runtime) @ 0x08000410
@@ -49,3 +49,33 @@ CC return 0 or a negative value. (depend on runtime) @ 0x08000410
 CC runtime(reloc 0x14) @ 0x08000339
 CC call rtnl_link_unregister @ 0x08000343
 
+# dummy_setup 
+
+CC save pointer to struct net_device @ 0x0800024a
+CC "eax hold value of dev->flags" @ 0x08000262
+CC "dev->priv_flags |= 0x88000" @ 0x08000268
+CC "dev->lltx |= 0x1" @ 0x0800026e
+CC "dev->flags &= ~(1<<12)" @ 0x08000272
+CC "dev->net_device_ops = mem_addr" @ 0x08000275
+CC "dev->flag |= 0x80"s @ 0x0800027d
+CC "dev->needs_free_netdev = 1" @ 0x0800027f
+CC "dev->flags = edited_flag" @ 0x08000286
+CC u64 mask = 0xe4fdd0069 @ 0x0800028c
+CC "mask |= dev->features" @ 0x08000296
+CC "dev->hw_features |= mask" @ 0x0800029d
+CC "dev->hw_enc_features |= mask" @ 0x080002a4
+CC "dev->features = mask" @ 0x080002ab
+CC clear mask @ 0x080002b2
+CC "dev->ethtool_ops = mem_addr" @ 0x080002b4
+CC "dev->request_ops_lock = 1" @ 0x080002bf
+CC "dev->addr_assign_type = 1" @ 0x080002ef
+CC "dev->min_mtu = 0 and dev->max_mtu = 0" @ 0x080002f6
+CC 1st arg hold pointer to struct net_device @ 0x080002de
+CC 2st arg = offset @ 0x080002d8
+CC 3nd arg = A pointer to the new address data @ 0x080002da
+CC 4rd arg = size @ 0x080002d3
+CC eax = 1 byte from new addr @ 0x080002cf
+CC clear first bit from eax hold new addr @ 0x080002e1
+CC set 2nd bit @ 0x080002e4
+CC moved modified byte to new addr @ 0x080002e7
+CC make 16-bits zero @ 0x080002c6
