@@ -27,7 +27,7 @@ CC call alloc_netdev_mqs @ 0x080003bf
 CC save return device @ 0x080003c4
 CC set flags from return value(alloc_netdev_mqs return null for failures) @ 0x080003c7
 CC if(retun_val == NULL), follows this path @ 0x080003ca
-CC runtime value(reloc 0x83) @ 0x080003cc
+CC "dev->rtnl_link_ops = runtime value(reloc 0x83)" @ 0x080003cc
 CC rdi hold alloc_netdev_mqs returned device @ 0x080003d7
 CC call register_netdevice @ 0x080003da
 CC save return value @ 0x080003df
