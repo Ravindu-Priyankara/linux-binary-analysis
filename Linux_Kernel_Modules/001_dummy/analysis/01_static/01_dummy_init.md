@@ -222,3 +222,5 @@
 - about cond_resched()
     - https://lwn.net/Articles/603252/
 
+- **assembly view**
+<img src="../assets/init_module-assembly-view.png">
