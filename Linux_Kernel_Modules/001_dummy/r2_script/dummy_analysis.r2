@@ -37,7 +37,7 @@ CC device @ 0x080003e5
 CC call free_netdev @ 0x080003e8
 CC __SCT__cond_resched @ 0x080003f1
 CC rtnl_unlock  @ 0x080003fb
-CC clear return value of register_netdevice @ 0x080003ef
+CC clear return value for make return 0 @ 0x080003ef
 CC increment the loop counter @ 0x080003f6
 CC set flags from return value @ 0x08000400
 CC "if return value >= 0, skip unregister" @ 0x08000402
