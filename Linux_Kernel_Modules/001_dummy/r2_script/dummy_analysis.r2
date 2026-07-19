@@ -32,7 +32,7 @@ CC rdi hold alloc_netdev_mqs returned device @ 0x080003d7
 CC call register_netdevice @ 0x080003da
 CC save return value @ 0x080003df
 CC set flags using register_netdevice return value @ 0x080003e1
-CC if(return value >= 0) follows this path @ 0x080003e3
+CC "if(return value >= 0) follows this path" @ 0x080003e3
 CC device @ 0x080003e5
 CC call free_netdev @ 0x080003e8
 CC __SCT__cond_resched @ 0x080003f1
@@ -80,3 +80,6 @@ CC clear first bit from eax hold new addr @ 0x080002e1
 CC set 2nd bit @ 0x080002e4
 CC moved modified byte to new addr @ 0x080002e7
 CC make 16-bits zero @ 0x080002c6
+CC buffer for random bytes @ 0x08000257
+CC length of random bytes @ 0x08000252
+CC make 32bits zero for get random bytes @ 0x0800025b
