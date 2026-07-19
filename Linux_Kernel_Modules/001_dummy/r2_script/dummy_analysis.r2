@@ -56,9 +56,9 @@ CC save pointer to struct net_device @ 0x0800024a
 CC "eax hold value of dev->flags" @ 0x08000262
 CC "dev->priv_flags |= 0x88000" @ 0x08000268
 CC "dev->lltx |= 0x1" @ 0x0800026e
-CC "dev->flags &= ~(1<<12)" @ 0x08000272
+CC "dev->flags &= ~(1<<12) remove IFF_MULTICAST flag" @ 0x08000272
 CC "dev->net_device_ops = mem_addr" @ 0x08000275
-CC "dev->flag |= 0x80"s @ 0x0800027d
+CC "dev->flag |= 0x80 (enable IFF_NOARP flag)"s @ 0x0800027d
 CC "dev->needs_free_netdev = 1" @ 0x0800027f
 CC "dev->flags = edited_flag" @ 0x08000286
 CC u64 mask = 0xe4fdd0069 @ 0x0800028c
