@@ -87,3 +87,9 @@ CC Initializes part of the temporary MAC buffer before filling it with random da
 # dummy_change_carrier
 
 CC "Second argument selects netif_carrier_on() or netif_carrier_off()" @ 0x08000129
+
+# dummy_get_stats64
+
+CC bytes @ 0x08000166
+CC packets @ 0x0800016a
+
