@@ -83,3 +83,7 @@ CC make 16-bits zero @ 0x080002c6
 CC buffer for random bytes @ 0x08000257
 CC length of random bytes @ 0x08000252
 CC Initializes part of the temporary MAC buffer before filling it with random data. @ 0x0800025b
+
+# dummy_change_carrier
+
+CC "Second argument selects netif_carrier_on() or netif_carrier_off()" @ 0x08000129
