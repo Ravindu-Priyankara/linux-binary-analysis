@@ -47,7 +47,7 @@ CC return 0 or a negative value. (depend on runtime) @ 0x08000410
 
 # exit module (cleanup_module)
 
-CC runtime(reloc 0x14) @ 0x08000339
+CC "struct rtnl_link_ops *ops(reloc 0x14)" @ 0x08000339
 CC call rtnl_link_unregister @ 0x08000343
 
 # dummy_setup 
