@@ -82,4 +82,4 @@ CC moved modified byte to new addr @ 0x080002e7
 CC make 16-bits zero @ 0x080002c6
 CC buffer for random bytes @ 0x08000257
 CC length of random bytes @ 0x08000252
-CC make 32bits zero for get random bytes @ 0x0800025b
+CC Initializes part of the temporary MAC buffer before filling it with random data. @ 0x0800025b
