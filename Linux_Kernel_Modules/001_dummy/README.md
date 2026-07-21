@@ -35,6 +35,18 @@ Binary-only analysis using:
 | dummy_validate | [dummy_validate](analysis/01_static/08_dummy_validate.md) |
 | dummy_xmit | [dummy_xmit](analysis/01_static/09_dummy_xmit.md) |
 
+### Reproducibility
+
+All static analysis annotations (comments, address markers, structure notes) are captured in a radare2 script for full reproducibility:
+
+- [`r2_script/dummy_analysis.r2`](r2_script/dummy_analysis.r2)
+
+Run it directly against the binary to reproduce the annotated analysis state:
+
+```bash
+r2 -e bin.relocs.apply=true -i r2_script/dummy_analysis.r2 dummy.ko
+```
+
 ---
 
 ## 2. Dynamic Analysis
