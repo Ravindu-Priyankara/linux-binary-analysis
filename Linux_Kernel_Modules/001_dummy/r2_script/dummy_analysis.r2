@@ -127,7 +127,12 @@ CC 1st arg = pointer to struct sk_buff @ 0x080001df
 CC free a skbuff @ 0x080001e2
 CC return 0 @ 0x080001eb
 CC 1st arg = pointer to struct sk_buff @ 0x080001f9
-CC NULL(struct skb_shared_hwtstamps) no hardware timestamp allowed @ 0x080001fc
+CC second argument = NULL(struct skb_shared_hwtstamps) @ 0x080001fc
 CC 1st arg = pointer to struct sk_buff @ 0x08000203
 CC free a skbuff @ 0x08000206
 CC return 0 @ 0x0800020f
+CC "dev->pcpu_lstats" @  0x080001aa
+CC "per-CPU byte counter += skb->len" @ 0x080001bf
+CC "per-CPU packet counter++" @ 0x080001c3
+CC "test bits 1 and 7 of byte at (skb->head + skb->end + 3)" @ 0x080001d8
+CC "Jump if either tested bit is set." @ 0x080001dd
