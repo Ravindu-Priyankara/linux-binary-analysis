@@ -32,33 +32,6 @@ The goal of this repository is to document the process of understanding unknown 
 
 ---
 
-# Linux Kernel Modules
-
-## 001_dummy
-
-Reverse engineering analysis of the Linux dummy network driver kernel module.
-
-The analysis is divided into multiple stages:
-
-```
-
-001_dummy/
-|
-├── analysis
-│   |
-│   ├── 01_static
-│   ├── 02_dynamic
-│   ├── 03_behavior
-│   ├── artifacts
-│   └── assets
-|
-├── r2_script
-└── target.md
-
-```
-
----
-
 # Tools Used
 
 ## Reverse Engineering
