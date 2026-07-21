@@ -93,3 +93,7 @@ CC "Second argument selects netif_carrier_on() or netif_carrier_off()" @ 0x08000
 CC bytes @ 0x08000166
 CC packets @ 0x0800016a
 
+# dummy_dev_init
+
+CC "dev->pcpu_stat_type = 1 (NETDEV_PCPU_STAT_LSTATS)" @ 0x08000078
+CC "dev->qdisc_tx_busylock = mem_addr" @ 0x0800007f
