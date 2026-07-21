@@ -97,3 +97,22 @@ CC packets @ 0x0800016a
 
 CC "dev->pcpu_stat_type = 1 (NETDEV_PCPU_STAT_LSTATS)" @ 0x08000078
 CC "dev->qdisc_tx_busylock = mem_addr" @ 0x0800007f
+
+# dummy_validate
+
+CC load pointer stored at offset +8 from first argument @ 0x080000b6
+CC make zero @ 0x080000ba
+CC set flags @ 0x080000bf
+CC if(rdx == NULL) follow this path(exit path) @  0x080000c2
+CC compare 16-bit value from pointer(rdx) against 0xa @  0x080000c4 
+CC not equal path @ 0x080000c8
+CC load 32-bit value from offset +4 @ 0x080000ca
+CC assign value to eax @  0x080000cd
+CC check first bit @ 0x080000d2
+CC if not equal, goes to exit path @ 0x080000d5
+CC read another field from structure @ 0x080000d7
+CC combine values from offset +8 and offset +4 @ 0x080000db
+CC compare it with 1 @ 0x080000dd
+CC convert comparison result into -1 or 0 @ 0x080000e0
+CC apply error code mask @ 0x080000e2
+CC set return value for failure cases @ 0x080000f1
