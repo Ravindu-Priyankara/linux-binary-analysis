@@ -116,3 +116,18 @@ CC compare it with 1 @ 0x080000dd
 CC convert comparison result into -1 or 0 @ 0x080000e0
 CC apply error code mask @ 0x080000e2
 CC set return value for failure cases @ 0x080000f1
+
+# dummy_xmit
+
+CC save pointer to struct sk_buff @ 0x080001b1
+CC "length(skb->len)" @ 0x080001b4
+CC "end(skb->end)" @ 0x080001cb
+CC "head(skb->head)" @ 0x080001d1
+CC 1st arg = pointer to struct sk_buff @ 0x080001df
+CC free a skbuff @ 0x080001e2
+CC return 0 @ 0x080001eb
+CC 1st arg = pointer to struct sk_buff @ 0x080001f9
+CC NULL(struct skb_shared_hwtstamps) no hardware timestamp allowed @ 0x080001fc
+CC 1st arg = pointer to struct sk_buff @ 0x08000203
+CC free a skbuff @ 0x08000206
+CC return 0 @ 0x0800020f
