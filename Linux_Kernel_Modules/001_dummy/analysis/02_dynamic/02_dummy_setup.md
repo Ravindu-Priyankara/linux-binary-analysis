@@ -9,14 +9,6 @@ Verify that `dummy_setup()` initializes the `net_device_ops` and `ethtool_ops` c
 ## Execution Sequence
 
 ```
-dummy_init()
- ├── rtnl_link_register()
- ├── rtnl_lock()
- ├── alloc_netdev_mqs()
- ├── register_netdevice()
- ├── __cond_resched()
- └── rtnl_unlock()
-
 dummy_setup(struct net_device *dev)
  ├── ether_setup()
  ├── get_random_bytes()
