@@ -51,14 +51,34 @@ r2 -e bin.relocs.apply=true -i r2_script/dummy_analysis.r2 dummy.ko
 
 ## 2. Dynamic Analysis
 
-Status: In progress
+Runtime validation of static findings using:
 
-Planned:
+- GDB
+- QEMU
+- Kernel debugging symbols
+- Live kernel structures
 
-- GDB kernel debugging
-- runtime structure verification
-- callback execution tracing
+The goal was to verify how the module behaves after loading and how kernel subsystems invoke module callbacks.
 
+### Runtime Analysis
+
+| Function | Report |
+|-|-|
+| Module initialization | [module_init](analysis/02_dynamic/01_module_init.md) |
+| dummy_setup | [dummy_setup](analysis/02_dynamic/02_dummy_setup.md) |
+| dummy_xmit | [dummy_xmit](analysis/02_dynamic/03_dummy_xmit.md) |
+| dummy_change_carrier | [dummy_change_carrier](analysis/02_dynamic/04_dummy_change_carrier.md) |
+| dummy_cleanup | [dummy_cleanup](analysis/02_dynamic/05_dummy_cleanup.md) |
+
+### Key Findings
+
+Runtime analysis confirmed:
+
+- `dummy_init()` registers the `rtnl_link_ops` structure.
+- `dummy_setup()` initializes `net_device_ops` and `ethtool_ops` callback tables.
+- `dummy_xmit()` is reached through the network transmission path and receives a valid `sk_buff`.
+- `dummy_change_carrier()` updates carrier state through `netif_carrier_on()` and `netif_carrier_off()`.
+- Module unloading invokes cleanup through the module exit callback and unregisters the `rtnl_link_ops` structure.
 ---
 
 ## 3. Behavior Analysis
