@@ -25,7 +25,34 @@ CC "(1st arg)_data = (void *)runtime value" @ 0xffffffff83d4b556
 CC call __ubsan_handle_shift_out_of_bounds @ 0xffffffff83d4b55d
 CC ebx = 0 @ 0xffffffff83d4b564
 CC eax = 1 @ 0xffffffff83d4b566
-CC ecx = 0 @ 0xffffffff83d4b56b
-CC rax = 1 @ 0xffffffff83d4b56d
+CC ecx = 0(can be changed according to the path) @ 0xffffffff83d4b56b
+CC rax = 1(can be changed according to the path) @ 0xffffffff83d4b56d
 CC if(rax <= 0x100) follow this path @ 0xffffffff83d4b576
 CC "set -22(EINVAL) error code" @ 0xffffffff83d4b578
+CC r12d = 0x14 @ 0xffffffff83d4b582
+CC r12d = r12d - ebx @ 0xffffffff83d4b588
+CC if(r12d <= 0x3f) follow this path @ 0xffffffff83d4b58f
+CC (3rd_arg)rhs = (void *)r12d @ 0xffffffff83d4b591
+CC (2nd arg)lhs = (void *)1 @ 0xffffffff83d4b594
+CC "(1st arg)_data = (void *)runtime value" @ 0xffffffff83d4b599
+CC call __ubsan_handle_shift_out_of_bounds @ 0xffffffff83d4b5a0
+CC eax = 1 @ 0xffffffff83d4b5a5
+CC ecx = r12d @ 0xffffffff83d4b5aa
+CC rdx = (int)max_loop @ 0xffffffff83d4b5ad
+CC if(rax < rdx) follow this path to return -22(EINVAL) error @ 0xffffffff83d4b5ba
+CC (1st_arg)rdi = (struct miscdevice *)loop_misc @ 0xffffffff83d4b5bc
+CC call misc_register @ 0xffffffff83d4b5c3
+CC save the return value @ 0xffffffff83d4b5c8
+CC set flags according to return value @ 0xffffffff83d4b5ca
+CC if(ret_val < 0) follow this path @ 0xffffffff83d4b5cc
+CC (3rd arg) probe callback = loop_probe @ 0xffffffff83d4b5ce
+CC (2nd arg) name = (char *)runtime value @ 0xffffffff83d4b5d5
+CC (1st arg) major = 7 @ 0xffffffff83d4b5dc
+CC call __register_blkdev @ 0xffffffff83d4b5e1
+CC save the return value @ 0xffffffff83d4b5e6
+CC set flags according to return value @ 0xffffffff83d4b5e8
+CC if(ret_val == 0) follow this path(success path) @ 0xffffffff83d4b5ea
+CC (1st_arg)rdi = (struct miscdevice *)loop_misc @ 0xffffffff83d4b5ec
+CC set -5(EIO) error code @ 0xffffffff83d4b5f3
+CC call misc_deregister @ 0xffffffff83d4b5f8
+CC jump to exit path @ 0xffffffff83d4b5fd
