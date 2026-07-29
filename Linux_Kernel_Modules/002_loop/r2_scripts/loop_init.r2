@@ -56,3 +56,13 @@ CC (1st_arg)rdi = (struct miscdevice *)loop_misc @ 0xffffffff83d4b5ec
 CC set -5(EIO) error code @ 0xffffffff83d4b5f3
 CC call misc_deregister @ 0xffffffff83d4b5f8
 CC jump to exit path @ 0xffffffff83d4b5fd
+CC make zero @ 0xffffffff83d4b5ff
+CC compare max_loop against loop counter @ 0xffffffff83d4b602
+CC if(max_loop <= loop counter) follow this path(exit loop path) @ 0xffffffff83d4b609
+CC (1st arg)rdi = r12d(loop counter) @ 0xffffffff83d4b60b
+CC increment the r12d(loop counter) @ 0xffffffff83d4b60e
+CC call loop_add (this is driver define function) @ 0xffffffff83d4b611
+CC jump until break the loop @ 0xffffffff83d4b616
+CC (1st arg) rdi = runtime value @ 0xffffffff83d4b618
+CC call _printk @ 0xffffffff83d4b61f
+CC set return value @ 0xffffffff83d4b624
