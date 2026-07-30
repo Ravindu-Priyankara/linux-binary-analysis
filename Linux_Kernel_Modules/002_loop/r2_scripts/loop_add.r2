@@ -31,3 +31,7 @@ CC call blk_mq_free_tag_set @ 0xffffffff81fe6ce7
 CC "call __stack_chk_fail" @ 0xffffffff81fe6cf7
 
 CC save first argument @ 0xffffffff81fe6961
+CC (1st arg)rdi =  rbp-0xe8 @ 0xffffffff81fe6964
+CC rax = __stack_chk_guard(canary) @ 0xffffffff81fe6975
+CC rbp-0x28 = save canary @ 0xffffffff81fe697d
+CC Make zero @ 0xffffffff81fe6981
