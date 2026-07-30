@@ -66,3 +66,12 @@ CC jump until break the loop @ 0xffffffff83d4b616
 CC (1st arg) rdi = runtime value @ 0xffffffff83d4b618
 CC call _printk @ 0xffffffff83d4b61f
 CC set return value @ 0xffffffff83d4b624
+CC make zero @ 0xffffffff83d4b4f6
+CC set flags according to max_part @ 0xffffffff83d4b50a
+CC if(max_part <= 0) follow this path @  0xffffffff83d4b50c
+CC if(ebx <= 0x3f) follow this path @ 0xffffffff83d4b521
+CC rax << cl @ 0xffffffff83d4b53e
+CC eax-- @ 0xffffffff83d4b541
+CC if(ebx <= 0x3f) follow this path @ 0xffffffff83d4b54c
+CC rax << cl @ 0xffffffff83d4b5b4
+CC if(rax < rdx) follow this path @ 0xffffffff83d4b5ba
